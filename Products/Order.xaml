@@ -1,0 +1,34 @@
+﻿<Window x:Class="Products.Order"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Products"
+        mc:Ignorable="d"
+        Title="Заказ" Height="450" Width="800" WindowStartupLocation="CenterScreen" KeyDown="Window_KeyDown">
+    <Grid>
+        <ScrollViewer Margin="0,0,0,60">
+            <StackPanel>
+                <TextBlock FontSize="20" HorizontalAlignment="Center">
+                    <Label>Склад:</Label> <LineBreak/>
+                    <RadioButton Checked="sc1_Checked" x:Name="sc1" GroupName="sclad">Склад 1</RadioButton><LineBreak/>
+                    <RadioButton Checked="sc2_Checked" x:Name="sc2" GroupName="sclad">Склад 2</RadioButton><LineBreak/>
+                    <RadioButton Checked="sc3_Checked" x:Name="sc3" GroupName="sclad">Склад 3</RadioButton><LineBreak/>
+                    <RadioButton Checked="sc4_Checked" x:Name="sc4" GroupName="sclad">Склад 4</RadioButton>
+                </TextBlock>
+                <TextBlock FontSize="20" HorizontalAlignment="Center">
+                    <Label>Товар:</Label> <LineBreak/>
+                    <ComboBox x:Name="ProductT" MaxWidth="300" FontSize="20" MinWidth="240" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    </ComboBox>
+                </TextBlock>
+                <TextBlock FontSize="20" HorizontalAlignment="Center">
+                    <Label>Поставщик:</Label> <LineBreak/>
+                    <ComboBox x:Name="SupplierT" MaxWidth="300" FontSize="20" MinWidth="240" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    </ComboBox>
+                </TextBlock>
+            </StackPanel>
+        </ScrollViewer>
+
+        <Button x:Name="createB" VerticalAlignment="Bottom" MinWidth="100" HorizontalAlignment="Center" Margin="0,0,20,10" Click="createB_Click">Добавить</Button>
+    </Grid>
+</Window>

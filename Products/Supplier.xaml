@@ -1,0 +1,23 @@
+﻿<Window x:Class="Products.Supplier"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Products"
+        mc:Ignorable="d"
+        Title="Поставки" Height="450" Width="800" WindowStartupLocation="CenterScreen" KeyDown="Window_KeyDown">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="331*"/>
+            <RowDefinition Height="40*"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer Margin="5">
+            <DataGrid x:Name="dGSup" IsReadOnly="True" FontSize="18">
+
+            </DataGrid>
+        </ScrollViewer>
+        <StackPanel  Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button x:Name="editWorker" FontSize="18" Width="150" Click="editWorker_Click">Изменить</Button>
+        </StackPanel>
+    </Grid>
+</Window>

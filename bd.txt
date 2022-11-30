@@ -1,0 +1,59 @@
+CREATE TABLE Warehouse(
+	ID int identity(1,1) primary key,
+	Name nvarchar(500));
+	
+CREATE TABLE Material(
+	ID int identity(1,1) primary key,
+	Name nvarchar(500));
+	
+CREATE TABLE Logins(
+	ID int identity(1,1) primary key,
+	Name nvarchar(500),
+	Type_acc int,
+	Login nvarchar(100),
+	Password nvarchar(100));
+	
+CREATE TABLE Product(
+	ID int identity(1,1) primary key,
+	Name nvarchar(500),
+	Create_not nvarchar(500));
+	
+CREATE TABLE Product_house(
+	ID int identity(1,1) primary key,
+	Product_id int foreign key references Product(ID),
+	Material_id int foreign key references Material(ID),
+	Warehouse_id int foreign key references Warehouse(ID),);
+	
+CREATE TABLE Answer(
+	ID int identity(1,1) primary key,
+	Name nvarchar(500));
+	
+CREATE TABLE Order_Sup(
+	ID int identity(1,1) primary key,
+	Product_house_id int foreign key references Product_house(ID),
+	Supplier_id int foreign key references Logins(ID),
+	Answer_id int foreign key references Answer(ID));
+	
+INSERT INTO Warehouse VALUES(N'Склад 1'), (N'Склад 2'), (N'Склад 3'), (N'Склад 4');
+
+INSERT INTO Product VALUES(N'Стол', N'Подготовка материала – это основная часть работы, потому остаётся только сборка. После раскроя предусмотрена резка деталей и шлифовальные работы. Нюансы процедур: Разметка на дереве поможет сделать срез ровным. Расстояние отмеряется с обеих сторон, а потом соединяется в одну линию.'),
+(N'Стул', N'От обычного стула этот экземпляр, сделанный самостоятельно отличает то, что : Спинка кресла отклонена на 10 градусов, и поддерживающие планки выпилены не из одной доски, а склеены из двух, что уменьшает расходы древесины. Сделано из одного куска дерева.'),
+(N'Тумба', N'Изготовление начинается с просмотра фото. Далее выбираем схему и чертеж, определяемся, из чего делать (дерево и доски подойдут).'),
+(N'Шкаф', N'Сначала нужно сделать разметку его расположения в помещении и составить чертеж конструкции. Такие предварительные процедуры помогут быстро собрать корпусную или встроенную мебель. В схемах расположения шкафа, необходимо учесть его ширину и высоту.');
+
+INSERT INTO Material VALUES(N'Дуб'), (N'Стекло'), (N'Металл'), (N'Акация');
+
+INSERT INTO Logins VALUES(N'Леонтьево', 4, N'test4', N'test4'),
+(N'Тополь', 4, N'test42', N'test42'),
+(N'Енакентьево', 4, N'test43', N'test43'),
+(N'Чурилово', 4, N'test44', N'test44'),
+(N'Кладмен', 3, N'test3', N'test3'),
+(N'Розеткино', 2, N'test2', N'test2'),
+(N'Вилкино', 1, N'test1', N'test1')
+(N'Админ', 5, N'admin', N'admin');
+
+INSERT INTO Answer VALUES(N'На рассмотрение'), (N'Принято'), (N'Отказ');
+
+INSERT INTO Product_house VALUES(1, 1, 2), (2, 3, 3);
+
+INSERT INTO Order_Sup VALUES(1, 1, 2), (2, 1, 1);
