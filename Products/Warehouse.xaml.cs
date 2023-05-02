@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,6 +34,22 @@ namespace Products
                 MainWindow mw = new MainWindow();
                 mw.Show();
                 Close();
+            }
+        }
+        WorkBD wBD = new WorkBD();
+        private void editNote_Click(object sender, RoutedEventArgs e)
+        {
+            if (dG.SelectedItem != null)
+            {
+                DataRowView dGR = (DataRowView)dG.SelectedItem;
+                string id = dGR["Описание"].ToString();
+                EditNote aU = new EditNote(id);
+                aU.ShowDialog();
+                if (aU.DialogResult == true)
+                {
+                    wBD.updateNote(aU.noteT.Text, id);
+                    wBD.relDTWarehouse(dG);
+                }
             }
         }
     }

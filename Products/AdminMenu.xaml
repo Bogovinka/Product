@@ -18,6 +18,7 @@
         </ScrollViewer>
         <StackPanel  Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal">
             <Button x:Name="addWorker" FontSize="18" Width="150" Click="addWorker_Click">Добавить</Button>
+            <Button x:Name="editWorker" FontSize="18" Width="150" Click="editWorker_Click">Изменить</Button>
             <Button x:Name="deleteWorker" FontSize="18" Width="150" Click="deleteWorker_Click">Удалить</Button>
         </StackPanel>
     </Grid>

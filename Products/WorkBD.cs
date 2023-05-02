@@ -61,7 +61,7 @@ namespace Products
         public void relDTWarehouse(DataGrid dg)
         {
             dg.Columns.Clear();
-            string sql = $"SELECT Product.Name AS 'Товар', Material.Name AS 'Материал', Warehouse.Name AS 'Склад'" +
+            string sql = $"SELECT Product.Name AS 'Товар', Material.Name AS 'Материал', Warehouse.Name AS 'Склад', Product.Create_not AS 'Описание'" +
                 $" FROM Product, Material, Warehouse, Product_house" +
                 $" WHERE Product_id = Product.ID AND Material_id = Material.ID AND Warehouse_id = Warehouse.ID";
             SqlConnection connection = new SqlConnection(connectionString);
@@ -158,6 +158,42 @@ namespace Products
                 connection.Open();
                 string query = $"INSERT INTO Logins" +
                     $" VALUES (N'{Name}', '{Type_acc}', N'{Login}', N'{Password}')";
+                SqlCommand command = new SqlCommand(query, connection);
+                // выполняем запрос
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public void updateUser(string Login, string Password, string ID)
+        {
+            try
+            {
+                SqlConnection connection = new SqlConnection(connectionString);
+                connection.Open();
+                string query = $"UPDATE Logins" +
+                    $" SET Login = N'{Login}', Password = N'{Password}' WHERE ID = {ID}";
+                SqlCommand command = new SqlCommand(query, connection);
+                // выполняем запрос
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public void updateNote(string note, string notes)
+        {
+            try
+            {
+                SqlConnection connection = new SqlConnection(connectionString);
+                connection.Open();
+                string query = $"UPDATE Product" +
+                    $" SET Create_not = N'{note}' WHERE Create_not = N'{notes}'";
                 SqlCommand command = new SqlCommand(query, connection);
                 // выполняем запрос
                 command.ExecuteNonQuery();

@@ -60,5 +60,21 @@ namespace Products
                 Close();
             }
         }
+
+        private void editWorker_Click(object sender, RoutedEventArgs e)
+        {
+            if (dGUsers.SelectedItem != null)
+            {
+                DataRowView dGR = (DataRowView)dGUsers.SelectedItem;
+                string id = dGR["ID"].ToString();
+                AddUser aU = new AddUser(id);
+                aU.ShowDialog();
+                if (aU.DialogResult == true)
+                {
+                    wBD.updateUser(aU.LoginT.Text, aU.PasswordT.Text, id);
+                    wBD.relDTUsers(dGUsers);
+                }
+            }
+        }
     }
 }

@@ -24,6 +24,8 @@
         <Label Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" FontSize="18">Пароль:</Label>
         <TextBox x:Name="loginText" Grid.Row="1" FontSize="18" Grid.Column="1" VerticalAlignment="Center" />
         <PasswordBox x:Name="passwordText" FontSize="18" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"></PasswordBox>
+        <TextBox Visibility="Hidden" x:Name="passwordText2" FontSize="18" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"></TextBox>
+        <CheckBox x:Name="cb" Unchecked="CheckBox_Unchecked" Checked="CheckBox_Checked" Margin="10,0,0,0" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left">посмотреть</CheckBox>
         <Button x:Name="loginB" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" MinWidth="150" Margin="10" Grid.Column="1" Grid.Row="3" Content="Войти" Click="loginB_Click"></Button>
         <Image Margin="0,10,0,0" Grid.Column="1"></Image>
     </Grid>

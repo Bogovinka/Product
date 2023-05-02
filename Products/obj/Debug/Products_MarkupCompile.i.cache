@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\salavat\Desktop\Products\Products\obj\Debug\
+C:\Users\mafak\Desktop\Product\Products\obj\Debug\
 Products
 none
 false
 DEBUG;TRACE
-C:\Users\salavat\Desktop\Products\Products\App.xaml
-8-1144095288
+C:\Users\mafak\Desktop\Product\Products\App.xaml
+9-960823958
 2544346826
-151446149746
+16-651865576
 13-1310406943
-AddUser.xaml;AdminMenu.xaml;EditStatus.xaml;MainWindow.xaml;Order.xaml;Supplier.xaml;Warehouse.xaml;Worker.xaml;
+AddUser.xaml;AdminMenu.xaml;EditNote.xaml;EditStatus.xaml;MainWindow.xaml;Order.xaml;Supplier.xaml;Warehouse.xaml;Worker.xaml;
 
 True
 
