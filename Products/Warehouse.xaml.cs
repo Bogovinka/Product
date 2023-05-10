@@ -42,8 +42,9 @@ namespace Products
             if (dG.SelectedItem != null)
             {
                 DataRowView dGR = (DataRowView)dG.SelectedItem;
-                string id = dGR["Описание"].ToString();
-                EditNote aU = new EditNote(id);
+                string note = dGR["Описание"].ToString();
+                string id = dGR["ID"].ToString();
+                EditNote aU = new EditNote(note);
                 aU.ShowDialog();
                 if (aU.DialogResult == true)
                 {

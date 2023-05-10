@@ -22,7 +22,8 @@ CREATE TABLE Product_house(
 	ID int identity(1,1) primary key,
 	Product_id int foreign key references Product(ID),
 	Material_id int foreign key references Material(ID),
-	Warehouse_id int foreign key references Warehouse(ID),);
+	Warehouse_id int foreign key references Warehouse(ID),
+	Note nvarchar(max));
 	
 CREATE TABLE Answer(
 	ID int identity(1,1) primary key,
@@ -49,7 +50,7 @@ INSERT INTO Logins VALUES(N'Леонтьево', 4, N'test4', N'test4'),
 (N'Чурилово', 4, N'test44', N'test44'),
 (N'Кладмен', 3, N'test3', N'test3'),
 (N'Розеткино', 2, N'test2', N'test2'),
-(N'Вилкино', 1, N'test1', N'test1')
+(N'Вилкино', 1, N'test1', N'test1'),
 (N'Админ', 5, N'admin', N'admin');
 
 INSERT INTO Answer VALUES(N'На рассмотрение'), (N'Принято'), (N'Отказ');

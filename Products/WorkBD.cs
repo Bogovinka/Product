@@ -61,7 +61,7 @@ namespace Products
         public void relDTWarehouse(DataGrid dg)
         {
             dg.Columns.Clear();
-            string sql = $"SELECT Product.Name AS 'Товар', Material.Name AS 'Материал', Warehouse.Name AS 'Склад', Product.Create_not AS 'Описание'" +
+            string sql = $"SELECT Product.ID, Product.Name AS 'Товар', Material.Name AS 'Материал', Warehouse.Name AS 'Склад', Note AS 'Описание'" +
                 $" FROM Product, Material, Warehouse, Product_house" +
                 $" WHERE Product_id = Product.ID AND Material_id = Material.ID AND Warehouse_id = Warehouse.ID";
             SqlConnection connection = new SqlConnection(connectionString);
@@ -109,7 +109,7 @@ namespace Products
                 SqlConnection connection = new SqlConnection(connectionString);
                 connection.Open();
                 string query = $"INSERT INTO Product_house" +
-                    $" VALUES ('{product}', '{material}', '{warehouse}')";
+                    $" VALUES ('{product}', '{material}', '{warehouse}', '')";
                 SqlCommand command = new SqlCommand(query, connection);
                 // выполняем запрос
                 command.ExecuteNonQuery();
@@ -192,8 +192,8 @@ namespace Products
             {
                 SqlConnection connection = new SqlConnection(connectionString);
                 connection.Open();
-                string query = $"UPDATE Product" +
-                    $" SET Create_not = N'{note}' WHERE Create_not = N'{notes}'";
+                string query = $"UPDATE Product_house" +
+                    $" SET Note = N'{note}' WHERE ID = N'{notes}'";
                 SqlCommand command = new SqlCommand(query, connection);
                 // выполняем запрос
                 command.ExecuteNonQuery();
